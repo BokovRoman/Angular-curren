@@ -29,9 +29,9 @@
     </div>
     <div class="result-container">
       <p>Result</p>
-      <p> {{inputValue}} {{selectedCurrency}}</p>
+      <p> {{inputValue |number : '1.2-2'}} {{selectedCurrency}}</p>
       <p>=</p>
-      <p>{{inputResult}} {{selectedCurrencyResult}}</p>
+      <p>{{inputResult |number : '1.2-2'}} {{selectedCurrencyResult}}</p>
     </div>
 
 </div>
