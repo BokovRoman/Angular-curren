@@ -1,14 +1,15 @@
 
-
-<!-- Toolbar -->
 <header>
   <div class="header-currency">
     <h1 class="currency-title">Сurrent exchange rate</h1>
-    <button type="button" (click)="convert()">Click me!</button>
     <table>
       <tr>
         <td>1 USD =</td>
-        <td>{{currencyRate}}UAH</td>
+        <td>{{currencyRateDollar | async}}UAH</td>
+      </tr>
+      <tr>
+        <td>1 EUR =</td>
+        <td>{{currencyRateEuro | async}}UAH</td>
       </tr>
     </table>
   </div>
@@ -16,26 +17,21 @@
 <div class="main-container">
   <div class="selection-cont">
 
-    <input type="number" #box name="value" (change)="getValue(box.value)" placeholder="Enter value(only numbers...)"/>
-    <select #c1 name="" (click)="convert()" id="country1" (mouseleave)="changebase(c1.value)">
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-      <option value="UAH">UAH</option>
+    <input type="number" [ngModel]="inputValue" (ngModelChange)="inputValueChange($event)" placeholder="Enter value(only numbers...)"/>
+    <select [ngModel]="selectedCurrency" (ngModelChange)="currencyBaseChange($event)" name="sel2">
+      <option [value]="i" *ngFor="let i of currencies">{{i}}</option>
     </select>
     <p>to</p>
-    <input type="text"/>
-        <select #c2 name="" (click)="convert()" id="country2" (mouseleave)="tocountry(c2.value)">
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="UAH">UAH</option>
-        </select>
+    <input readonly [ngModel]="inputResult"/>
+    <select [ngModel]="selectedCurrencyResult" (ngModelChange)="currencyResultChange($event)" name="sel2">
+      <option [value]="i" *ngFor="let i of currencies">{{i}}</option>
+    </select>
     </div>
-    <button type="button" (click)="convert()">Submit</button>
     <div class="result-container">
       <p>Result</p>
-      <p>1 {{base}}</p>
+      <p> {{inputValue}} {{selectedCurrency}}</p>
       <p>=</p>
-      <p>{{result}}  {{count2}}</p>
+      <p>{{inputResult}} {{selectedCurrencyResult}}</p>
     </div>
 
 </div>

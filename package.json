@@ -1,7 +1,7 @@
 {
   "name": "mycurrencycalculator",
   "version": "0.0.0",
-  "homepage" : "http://BokovRoman.github.io/Angular-curren",
+  "homepage": "http://BokovRoman.github.io/Angular-curren",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
