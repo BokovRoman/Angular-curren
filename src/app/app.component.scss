@@ -1,6 +1,6 @@
 .main-container{
-    background-color: rgb(53,53,53);
-    width: 500px;
+    background-color: rgb(107, 88, 88);
+    width: 650px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -20,6 +20,30 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     color: wheat;
+}
+
+.currency-title{
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: rgb(83, 56, 5);
+}
+
+.header-currency td{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(163, 157, 41)
+}
+
+input{
+    font-size: 17px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 select{

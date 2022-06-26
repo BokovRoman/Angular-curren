@@ -1,40 +1,38 @@
+<div class="container">
+  <header>
+    <div class="header-currency">
+      <h1 class="currency-title">Сurrent exchange rate</h1>
+      <table>
+        <tr>
+          <td>1 USD =</td>
+          <td>{{currencyRateDollar | async}}UAH</td>
+        </tr>
+        <tr>
+          <td>1 EUR =</td>
+          <td>{{currencyRateEuro | async}}UAH</td>
+        </tr>
+      </table>
+    </div>
+  </header>
+  <div class="main-container">
+    <div class="selection-cont">
 
-<header>
-  <div class="header-currency">
-    <h1 class="currency-title">Сurrent exchange rate</h1>
-    <table>
-      <tr>
-        <td>1 USD =</td>
-        <td>{{currencyRateDollar | async}}UAH</td>
-      </tr>
-      <tr>
-        <td>1 EUR =</td>
-        <td>{{currencyRateEuro | async}}UAH</td>
-      </tr>
-    </table>
+      <input type="number" [ngModel]="inputValue" (ngModelChange)="inputValueChange($event)" placeholder="Enter value(numbers)"/>
+      <select [ngModel]="selectedCurrency" (ngModelChange)="currencyBaseChange($event)" name="sel2">
+        <option [value]="i" *ngFor="let i of currencies">{{i}}</option>
+      </select>
+      <p>to</p>
+      <input readonly [ngModel]="inputResult"/>
+      <select [ngModel]="selectedCurrencyResult" (ngModelChange)="currencyResultChange($event)" name="sel2">
+        <option [value]="i" *ngFor="let i of currencies">{{i}}</option>
+      </select>
+      </div>
+      <div class="result-container">
+        <p>Result:</p>
+        <p> {{inputValue}} {{selectedCurrency}} = {{inputResult |number : '1.2-2'}} {{selectedCurrencyResult}}</p>
+      </div>
+
   </div>
-</header>
-<div class="main-container">
-  <div class="selection-cont">
-
-    <input type="number" [ngModel]="inputValue" (ngModelChange)="inputValueChange($event)" placeholder="Enter value(only numbers...)"/>
-    <select [ngModel]="selectedCurrency" (ngModelChange)="currencyBaseChange($event)" name="sel2">
-      <option [value]="i" *ngFor="let i of currencies">{{i}}</option>
-    </select>
-    <p>to</p>
-    <input readonly [ngModel]="inputResult"/>
-    <select [ngModel]="selectedCurrencyResult" (ngModelChange)="currencyResultChange($event)" name="sel2">
-      <option [value]="i" *ngFor="let i of currencies">{{i}}</option>
-    </select>
-    </div>
-    <div class="result-container">
-      <p>Result</p>
-      <p> {{inputValue}} {{selectedCurrency}}</p>
-      <p>=</p>
-      <p>{{inputResult |number : '1.2-2'}} {{selectedCurrencyResult}}</p>
-    </div>
-
 </div>
-
 
 <router-outlet></router-outlet>
